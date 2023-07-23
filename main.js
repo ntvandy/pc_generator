@@ -32,8 +32,6 @@ function setName() {
     var rFirst = Math.floor(Math.random() * 14);
     var rLast = Math.floor(Math.random() * 17)
 
-    console.log(pcRace);
-
     switch (pcRace) {
         case 'Dragonborn': {
             const mascNames = ['Arjhan', 'Balasar', 'Bharash', 'Donaar', 'Ghesh', 'Heskan', 'Kriv', 'Medrash', 'Mehen', 'Nadarr', 'Pandjed', 'Patrin', 'Rhogar', 'Shamash', 'Shedinn']; // 15
