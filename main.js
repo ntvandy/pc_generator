@@ -6,13 +6,12 @@ const raceArr = ['Dragonborn', 'Dwarf', 'Elf',
 const classArr = ['Barbarian', 'Bard', 'Cleric', 
                   'Druid', 'Fighter', 'Monk', 
                   'Paladin', 'Ranger', 'Rouge', 
-                  'Sorcerer', 'Warlock', 'Wizard']
+                  'Sorcerer', 'Warlock', 'Wizard'];
 
 // Decides Playable Character's Race //
-function setRace() {
-    let pcRace = undefined;
+const setRace = () => {
     var rand = Math.floor(Math.random() * 8);
-    return pcRace = raceArr[rand];
+    return raceArr[rand];
 }
 
 // Decides Playable Character's Class //
@@ -22,15 +21,20 @@ function setClass() {
     return pcClass = classArr[rand];
 }
 
+// Decides Playable Character's Full Name //
+let pcRace = setRace();
 function setName() {
-    let wholeName = undefined;
-    let first = undefined;
-    let last = undefined;
+    let wholeName = '';
+    let first = '';
+    let last = '';
 
     var mOrF = Math.floor(Math.random() * 2);
     var rFirst = Math.floor(Math.random() * 14);
     var rLast = Math.floor(Math.random() * 17)
-    switch (setRace()) {
+
+    console.log(pcRace);
+
+    switch (pcRace) {
         case 'Dragonborn': {
             const mascNames = ['Arjhan', 'Balasar', 'Bharash', 'Donaar', 'Ghesh', 'Heskan', 'Kriv', 'Medrash', 'Mehen', 'Nadarr', 'Pandjed', 'Patrin', 'Rhogar', 'Shamash', 'Shedinn']; // 15
             const femNames = ['Akra', 'Biri', 'Daar', 'Farideh', 'Harann', 'Havilar', 'Jheri', 'Kava', 'Korinn', 'Mishann', 'Nala', 'Perra', 'Raiann', 'Sora', 'Surina']; // 15
@@ -40,8 +44,6 @@ function setName() {
                 first = mascNames[rFirst];
             } else if (mOrF === 1) { //Feminine
                 first = femNames[rFirst];
-            } else {
-                console.log("ERROR 003: FIRST NAME WAS NOT GENERATED.")
             }
 
             last = clanNames[rLast];
@@ -57,8 +59,6 @@ function setName() {
                 first = mascNames[rFirst];
             } else if (mOrF === 1) { //Feminine
                 first = femNames[rFirst];
-            } else {
-                console.log("ERROR 003: FIRST NAME WAS NOT GENERATED.")
             }
 
             last = clanNames[rLast];
@@ -74,8 +74,6 @@ function setName() {
                 first = mascNames[rFirst];
             } else if (mOrF === 1) { //Feminine
                 first = femNames[rFirst];
-            } else {
-                console.log("ERROR 003: FIRST NAME WAS NOT GENERATED.")
             }
 
             last = lastNames[rLast];
@@ -91,8 +89,6 @@ function setName() {
                 first = mascNames[rFirst];
             } else if (mOrF === 1) { //Feminine
                 first = femNames[rFirst];
-            } else {
-                console.log("ERROR 003: FIRST NAME WAS NOT GENERATED.")
             }
 
             last = clanNames[rLast];
@@ -108,8 +104,6 @@ function setName() {
                 first = mascNames[rFirst];
             } else if (mOrF === 1) { //Feminine
                 first = femNames[rFirst];
-            } else {
-                console.log("ERROR 003: FIRST NAME WAS NOT GENERATED.")
             }
 
             last = lastNames[rLast];
@@ -117,11 +111,31 @@ function setName() {
             break;
         }
         case 'Halfling': {
+            const mascNames = ['Alton', 'Ander', 'Cade', 'Corrin', 'Eldon', 'Errich', 'Finnan', 'Garret', 'Lindal', 'Lyle', 'Merric', 'Milo', 'Osborn', 'Perrin', 'Reed']; // 15
+            const femNames = ['Andry', 'Bree', 'Callie', 'Cora', 'Euphemia', 'Jillian', 'Kithri', 'Lavinia', 'Lidda', 'Merla', 'Nedda', 'Paela', 'Portia', 'Seraphina', 'Shaena']; // 15
+            const lastNames = ['Brushgather', 'Goodbarrel', 'Greenbottle', 'High-hill', 'Hilltopple', 'Leagallow', 'Tealeaf', 'Thorngage', 'Tosscobble', 'Underbough', 'Riverwillow', 'Ravenkettle', 'Fogtopple', 'Stillbottle', 'Mosscobble', 'Thistlestride', 'Quickpot', 'Softlade']; // 18 
+            
+            if (mOrF === 0) { //Masculine
+                first = mascNames[rFirst];
+            } else if (mOrF === 1) { //Feminine
+                first = femNames[rFirst];
+            }
 
+            last = lastNames[rLast];
+            wholeName = `${first} ${last}`;
             break;
         }
         case 'Half-Orc': {
+            const mascNames = ['Dench', 'Feng', 'Gell', 'Henk', 'Holg', 'Imsh', 'Keth', 'Krusk', 'Mhurren', 'Ront', 'Shump', 'Thokk', 'Krukz', 'Gulmig', 'Krig']; // 15
+            const femNames = ['Baggi', 'Emen', 'Engong', 'Kansif', 'Myev', 'Neega', 'Ovak', 'Ownka', 'Shautha', 'Sutha', 'Vola', 'Volen', 'Yevelda', 'Arone', 'Rohami']; // 15
+            
+            if (mOrF === 0) { //Masculine
+                first = mascNames[rFirst];
+            } else if (mOrF === 1) { //Feminine
+                first = femNames[rFirst];
+            }
 
+            wholeName = first;
             break;
         }
         case 'Human': {
@@ -133,8 +147,6 @@ function setName() {
                 first = mascNames[rFirst];
             } else if (mOrF === 1) { //Feminine
                 first = femNames[rFirst];
-            } else {
-                console.log("ERROR 003: FIRST NAME WAS NOT GENERATED.")
             }
 
             last = lastNames[rLast];
@@ -142,11 +154,21 @@ function setName() {
             break;
         }
         case 'Tiefling': {
+            const mascNames = ['Akmenos', 'Amnon', 'Barakas', 'Damakos', 'Ekemon', 'Iados', 'Kairon', 'Leucis', 'Melech', 'Mordai', 'Morthos', 'Pelaios', 'Skamos', 'Therai', 'Zherilius']; // 15
+            const femNames = ['Akta', 'Anakis', 'Bryseis', 'Criella', 'Damaia', 'Ea', 'Kallista', 'Lerissa', 'Makaria', 'Nemeia', 'Orianna', 'Phelaia', 'Rieta', 'Zeborys', 'Yugoria']; // 15
+            
+            if (mOrF === 0) { //Masculine
+                first = mascNames[rFirst];
+            } else if (mOrF === 1) { //Feminine
+                first = femNames[rFirst];
+            }
 
+            wholeName = first;
             break;
         }
     }
     return wholeName;
 }
 
-console.log(`Your DnD playable character, ${setName()}, is a ${setRace()} ${setClass()}`);
+
+console.log(`Your DnD playable character, ${setName()}, is a ${pcRace} ${setClass()}`);5
