@@ -171,4 +171,4 @@ function setName() {
 }
 
 
-console.log(`Your DnD playable character, ${setName()}, is a ${pcRace} ${setClass()}`);5
+console.log(`Your DnD playable character, ${setName()}, is a ${pcRace} ${setClass()}`);
